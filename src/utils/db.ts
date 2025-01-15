@@ -17,3 +17,22 @@ export const initDB = async (): Promise<IDBPDatabase> => {
     },
   });
 };
+
+// Simpan token
+export const saveToken = async (token: string): Promise<void> => {
+  const db = await initDB();
+  await db.put(AUTH_STORE_NAME, { id: "authToken", value: token });
+};
+
+// Ambil token
+export const getToken = async (): Promise<string | null> => {
+  const db = await initDB();
+  const record = await db.get(AUTH_STORE_NAME, "authToken");
+  return record?.value || null;
+};
+
+// Hapus token
+export const clearToken = async (): Promise<void> => {
+  const db = await initDB();
+  await db.delete(AUTH_STORE_NAME, "authToken");
+};

@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { saveToken } from "../utils/db";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(email=="aksamedia@gmail.com" && password=="aksamedia"){
-        navigate("/")
+    if (email == "aksamedia@gmail.com" && password == "aksamedia") {
+      const fakeToken = "12345";
+      await saveToken(fakeToken);
+      navigate("/");
     }
   };
 
