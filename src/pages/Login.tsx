@@ -8,7 +8,7 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (email == "aksamedia@gmail.com" && password == "aksamedia") {
       const fakeToken = "12345";
@@ -23,7 +23,7 @@ const Login = () => {
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-700">
           Login
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label
               htmlFor="email"
