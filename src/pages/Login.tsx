@@ -13,7 +13,7 @@ const Login = () => {
     if (email == "aksamedia@gmail.com" && password == "aksamedia") {
       const fakeToken = "12345";
       await saveToken(fakeToken);
-      navigate("/");
+      navigate("/dashboard");
     }
   };
 
